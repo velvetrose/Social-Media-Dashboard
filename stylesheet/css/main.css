@@ -1,0 +1,311 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
+:root {
+  --background: hsl(0, 0, 100%);
+  --background-top-pattern: hsl(225, 100%, 98%);
+  --card-background: hsl(227, 47%, 96%);
+  --text1: hsl(228, 12%, 44%);
+  --text2: hsl(230, 17%, 14%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+}
+
+body {
+  background: var(--background);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.header {
+  padding: 2rem 1rem 3rem 1rem;
+  background: var(--background-top-pattern);
+  border-radius: 0 0 20px 20px;
+}
+
+.title {
+  position: relative;
+}
+.title ::after {
+  position: absolute;
+  content: "";
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-bottom: 1.5px solid var(--text1);
+  opacity: 0.25;
+}
+.title h3 {
+  font-size: 1.25rem;
+  color: var(--text2);
+}
+.title p {
+  font-size: 0.8rem;
+  color: var(--text1);
+  line-height: 1.5rem;
+  font-weight: 700;
+  padding-bottom: 1rem;
+}
+
+.theme {
+  padding: 1rem 0 1rem 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.theme p {
+  font-weight: 700;
+  color: var(--text1);
+  font-size: 0.8rem;
+}
+
+.toggler {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+}
+.toggler input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  inset: 0 0 0 0;
+  background-color: hsl(230deg, 22%, 74%);
+  border-radius: 34px;
+}
+.slider:hover {
+  background: linear-gradient(to right, hsl(210deg, 78%, 56%), hsl(146deg, 68%, 55%));
+  cursor: pointer;
+}
+.slider::before {
+  position: absolute;
+  content: "";
+  height: 14px;
+  width: 14px;
+  right: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background: linear-gradient(to right, hsl(210deg, 78%, 56%), hsl(146deg, 68%, 55%));
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px linear-gradient(to right, hsl(210deg, 78%, 56%), hsl(146deg, 68%, 55%));
+}
+
+input:checked + .slider:before {
+  transform: translateX(-21px);
+  background-color: var(--background);
+}
+
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-items: stretch;
+  padding: 0 1rem 0 1rem;
+  position: relative;
+  top: -2rem;
+  gap: 2rem;
+}
+
+.all-time {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+.all-time .facebook {
+  border-top-color: hsl(208deg, 92%, 53%);
+}
+.all-time .twitter {
+  border-top-color: hsl(203deg, 89%, 53%);
+}
+.all-time .instagram {
+  -o-border-image: linear-gradient(to right, hsl(37deg, 97%, 70%), hsl(329deg, 70%, 58%)) 1;
+     border-image: linear-gradient(to right, hsl(37deg, 97%, 70%), hsl(329deg, 70%, 58%)) 1;
+}
+.all-time .youtube {
+  border-top-color: hsl(348deg, 97%, 39%);
+}
+
+.card {
+  padding: 1rem;
+  background: var(--card-background);
+  width: 100%;
+  border-radius: 3px;
+  border-top: 3px solid;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+.card:hover {
+  cursor: pointer;
+  filter: brightness(80%);
+}
+
+.social {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+}
+.social img {
+  width: 12px;
+  height: 12px;
+}
+.social p {
+  font-size: 0.6rem;
+  font-weight: 700;
+  color: var(--text1);
+}
+
+.followers {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.followers p {
+  font-size: 3rem;
+  font-weight: bold;
+  color: var(--text2);
+}
+.followers span {
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: var(--text1);
+  letter-spacing: 0.2rem;
+}
+
+.today h3 {
+  color: var(--text1);
+}
+.today .cards-overview {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.5rem 0 0 0;
+}
+
+.card2 {
+  padding: 1rem;
+  background: var(--card-background);
+  width: 100%;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-items: unset;
+  gap: 1rem;
+}
+.card2:hover {
+  cursor: pointer;
+  filter: brightness(80%);
+}
+.card2 .top {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.card2 .top p {
+  font-size: 0.6rem;
+  font-weight: 700;
+  color: var(--text1);
+}
+.card2 .top > img {
+  width: 12px;
+  height: 12px;
+}
+.card2 .bottom {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.card2 .bottom .Numbers {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--text2);
+}
+
+.gain {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+}
+.gain p {
+  font-size: 0.6rem;
+  font-weight: 700;
+  color: hsl(163deg, 72%, 41%);
+}
+
+.loss {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+}
+.loss p {
+  font-size: 0.6rem;
+  font-weight: 700;
+  color: hsl(356deg, 69%, 56%);
+}
+
+.attribution {
+  color: var(--text2);
+  text-align: center;
+  font-size: 0.8rem;
+  padding-bottom: 0.5rem;
+}
+.attribution a {
+  color: hsl(163deg, 72%, 41%);
+  font-size: 0.8rem;
+}
+
+:root:has(#switch:checked) {
+  --background: hsl(230, 17%, 14%);
+  --background-top-pattern: hsl(232, 19%, 15%);
+  --card-background: hsl(228, 28%, 20%);
+  --text1: hsl(228, 34%, 66%);
+  --text2: hsl(0, 0%, 100%);
+}
+
+@media screen and (min-width: 746px) {
+  .all-time {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  .today .cards-overview {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .dashboard {
+    margin: 0 5rem 0 5rem;
+  }
+}
+@media screen and (max-width: 850px) {
+  .today .cards-overview {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}/*# sourceMappingURL=main.css.map */

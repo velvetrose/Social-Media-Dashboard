@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+//COLORS
+
+//LIGHT THEME - DEFAULT
+:root{
+    --background: hsl(0, 0, 100%);
+    --background-top-pattern: hsl(225, 100%, 98%);
+    --card-background: hsl(227, 47%, 96%);
+    --text1: hsl(228, 12%, 44%);
+    --text2: hsl(230, 17%, 14%);
+    
+}
+$background: var(--background);
+$background-top-pattern: var(--background-top-pattern);
+$card-background: var(--card-background);
+$text1: var(--text1);
+$text2: var(--text2);
+
+
+
+//PRIMARY COLORS
+$lime-green : hsl(163, 72%, 41%);
+$bright-red : hsl(356, 69%, 56%);
+
+$facebook: hsl(208, 92%, 53%);
+$twitter: hsl(203, 89%, 53%);
+$instagram : linear-gradient(to right, hsl(37, 97%, 70%), hsl(329, 70%, 58%));
+$youtube: hsl(348, 97%, 39%);
+
+//TOGGLERS
+$toggle-dark: linear-gradient(to right, hsl(210, 78%, 56%), hsl(146, 68%, 55%));
+$toggle-light: hsl(230, 22%, 74%);
+
+// DARK THEME
+// @mixin Dark{
+//     $background: hsl(230, 17%, 14%);
+//     $background-top-pattern: hsl(232, 19%, 15%);
+//     $card-background: hsl(228, 28%, 20%);
+//     $text1: hsl(228, 34%, 66%);
+//     $text2: hsl(0, 0%, 100%);
+// }
+
+
+//TYPOGRAPHY
+$font-size: 14px;
+$regular: 400;
+$bold: 700;
+$font-family: 'Inter', sans-serif;
+
+//DISPLAY
+@mixin flexRow {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+@mixin flexColumn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

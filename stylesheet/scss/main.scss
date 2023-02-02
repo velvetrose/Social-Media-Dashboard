@@ -1,0 +1,322 @@
+@import 'config';
+
+//RESETS
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: $font-family;
+    font-size: $font-size;
+}
+
+body{
+    background: $background;
+    min-height: 100vh; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.header {
+    padding: 2rem 1rem 3rem 1rem;
+    background: $background-top-pattern;
+    border-radius: 0 0 20px 20px;
+}
+
+.title {
+    position: relative;
+    //LINE UNDER TITLE SECTION
+    ::after {
+        position: absolute;
+        content: '';
+        bottom: 0;
+        left: 0;
+        right: 0;
+        border-bottom: 1.5px solid $text1;
+        opacity: 0.25;
+    }
+    h3 {
+        font-size: 1.25rem;
+        color: $text2;
+    }
+    
+    p {
+        font-size: 0.8rem;
+        color: $text1;
+        line-height: 1.5rem;
+        font-weight: $bold;
+        padding-bottom: 1rem;
+    }
+}
+
+.theme {
+    padding: 1rem 0 1rem 0;
+    @include flexRow;
+    justify-content: space-between;
+
+    p {
+        font-weight: $bold;
+        color: $text1;
+        font-size: 0.8rem;
+    }
+}
+
+//TOGGLE SWITCH
+
+.toggler {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+
+    & input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    inset: 0 0 0 0;
+    background-color: $toggle-light;
+    border-radius: 34px;
+
+    &:hover {
+        background: $toggle-dark;
+        cursor: pointer;
+    }
+
+    &::before {
+        position: absolute;
+        content: "";
+        height: 14px;
+        width: 14px;
+        right: 3px;
+        bottom: 3px;
+        background-color: white;
+        transition: .4s;
+        border-radius: 50%;
+    }
+}
+input:checked+.slider {
+    background: $toggle-dark;
+}
+
+input:focus+.slider {
+    box-shadow: 0 0 1px $toggle-dark;
+}
+
+input:checked+.slider:before {
+    transform: translateX(-21px);
+    background-color: $background;
+}
+
+.dashboard {
+    @include flexColumn;
+    align-items: stretch;
+    padding: 0 1rem 0 1rem;
+    position: relative;
+    top: -2rem;
+    gap: 2rem;
+}
+
+.all-time {
+    @include flexColumn;
+    gap: 1rem;
+
+    .facebook {
+        border-top-color: $facebook;
+    }
+
+    .twitter {
+        border-top-color: $twitter;
+    }
+
+    .instagram {
+        border-image: $instagram 1;
+    }
+
+    .youtube {
+        border-top-color: $youtube;
+    }
+}
+
+.card {
+    padding: 1rem;
+    background: $card-background;
+    width: 100%;
+    border-radius: 3px;
+    border-top: 3px solid;
+    @include flexColumn;
+    gap: 1rem;
+
+    &:hover {
+        cursor: pointer;
+        filter:brightness(80%);
+        //background: darken($card-background, 5%);
+    }
+
+}
+
+.social {
+    @include flexRow;
+    gap: 0.5rem;
+
+    & img {
+        width: 12px;
+        height: 12px;
+    }
+
+    & p {
+        font-size: 0.6rem;
+        font-weight: $bold;
+        color: $text1;
+    }
+
+}
+
+.followers {
+    @include flexColumn;
+
+    & p {
+        font-size: 3rem;
+        font-weight: bold;
+        color: $text2;
+    }
+
+    & span {
+        font-size: 0.8rem;
+        font-weight: $regular;
+        color: $text1;
+        letter-spacing: 0.2rem;
+    }
+}
+
+
+.today {
+
+    & h3 {
+        color: $text1;
+    }
+
+    & .cards-overview {
+        @include flexColumn;
+        gap: 1rem;
+        padding: 0.5rem 0 0 0;
+    }
+}
+
+.card2 {
+    padding: 1rem;
+    background: $card-background;
+    width: 100%;
+    border-radius: 5px;
+    @include flexColumn;
+    align-items:unset;
+    gap: 1rem;
+
+    &:hover {
+        cursor: pointer;
+        filter: brightness(80%);
+        //background: darken($card-background, 5%);
+    }
+
+    & .top {
+        @include flexRow;
+        justify-content: space-between;
+
+        & p {
+            font-size: 0.6rem;  
+            font-weight: $bold;
+            color: $text1;
+        }
+        &>img {
+            width: 12px;
+            height: 12px;
+        }
+    }
+
+    & .bottom {
+        @include flexRow;
+        justify-content: space-between;
+
+        .Numbers {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: $text2;
+        }
+    }
+
+}
+
+.gain {
+    @include flexRow;
+    gap: 0.5rem;
+
+    & p {
+        font-size: 0.6rem;
+        font-weight: $bold;
+        color: $lime-green ;
+    }
+
+}
+
+.loss {
+    @include flexRow;
+    gap: 0.5rem;
+
+    & p {
+        font-size: 0.6rem;
+        font-weight: $bold;
+        color: $bright-red;
+    }
+}
+
+
+
+.attribution{
+    color: $text2;
+    text-align: center;
+    font-size: 0.8rem;
+    padding-bottom: 0.5rem;
+
+    a{
+        color: $lime-green;
+        font-size: 0.8rem;
+    }
+}
+
+
+//DARK MODE
+:root:has(#switch:checked) {
+
+    --background: hsl(230, 17%, 14%);
+    --background-top-pattern: hsl(232, 19%, 15%);
+    --card-background: hsl(228, 28%, 20%);
+    --text1: hsl(228, 34%, 66%);
+    --text2: hsl(0, 0%, 100%);
+    
+}
+
+//DESKTOP VIEW
+@media screen and (min-width: 746px) {
+    .all-time{
+        @include flexRow;
+    }
+    .today .cards-overview{
+        display: grid;
+        grid-template-columns:  repeat(4, 1fr);
+    }
+    .dashboard{
+        margin: 0 5rem 0 5rem;
+    }
+    
+}
+
+@media screen and (max-width: 850px) {
+    .today .cards-overview{
+        grid-template-columns:  repeat(2, 1fr);
+    }
+}
